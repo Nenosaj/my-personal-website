@@ -1,99 +1,176 @@
 <!doctype html>
 <html lang="en">
   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Jason — Personal Website</title>
-      <style>
-    body {
-      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      color: #111;
-      background: #fdfdfd;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-    nav {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #0366d6;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .intro {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .intro img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      background: #ddd;
-    }
-    .intro-text {
-      flex: 1;
-      min-width: 250px;
-    }
-    footer {
-      margin-top: 3rem;
-      text-align: center;
-      color: #555;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jason — Personal Website</title>
+    <meta name="description" content="Jason's personal website — portfolio, writing, and stories." />
+    <style>
+      :root {
+        --accent: #0077ff;
+        --bg: #fafafa;
+        --text-dark: #111;
+        --text-light: #555;
+        --border: #eaeaea;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text-dark);
+        background: var(--bg);
+        line-height: 1.7;
+      }
+
+      header {
+        text-align: center;
+        padding: 4rem 1rem 3rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+
+      header p {
+        color: var(--text-light);
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      main {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .intro {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .intro img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #ddd;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .intro-text {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .intro-text h2 {
+        font-size: 1.7rem;
+        margin-top: 0;
+      }
+
+      .intro-text p {
+        color: var(--text-light);
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      h3 {
+        border-left: 4px solid var(--accent);
+        padding-left: 0.6rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 0.3rem 0;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--border);
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      footer span {
+        color: var(--accent);
+      }
+    </style>
   </head>
+
   <body>
-      <header>
-    <h1>Jason</h1>
-    <p>Welcome to my personal corner of the web!</p>
-  </header>
+    <header>
+      <h1>Jason</h1>
+      <p>Creator • Writer • Tech Enthusiast</p>
+    </header>
 
-      <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="blog.html">Blog</a>
-  </nav>
+    <main>
+      <section class="intro">
+        <img src="placeholder.jpg" alt="Jason's Photo" />
+        <div class="intro-text">
+          <h2>Hello, I’m Jason.</h2>
+          <p>
+            Welcome to my personal website — a space where I share my journey, creations, and reflections.
+            I’m passionate about building things, writing stories, and exploring the intersection between
+            technology and creativity.
+          </p>
+          <p>
+            This site will soon grow into my portfolio, a blog, and maybe a few experiments I find
+            interesting along the way.
+          </p>
+        </div>
+      </section>
 
-      <main>
-    <section class="intro">
-      <img src="placeholder.jpg" alt="Jason's Photo">
-      <div class="intro-text">
-        <h2>Hello!</h2>
+      <section>
+        <h3>What I’m Into</h3>
+        <ul>
+          <li>💻 Programming and tinkering with Raspberry Pi</li>
+          <li>🧠 Learning about computer architecture and low-level systems</li>
+          <li>🖋️ Writing letters, reflections, and small literary pieces</li>
+          <li>🎨 Designing minimal personal projects with a story behind them</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Connect With Me</h3>
         <p>
-          I’m Jason — a creator, writer, and tech enthusiast. This is my personal website where I share my portfolio, stories, blog posts, letters, and more about me.  
-          Feel free to explore and learn more about my work and passions.
+          I’m active on a few platforms — feel free to check them out:
         </p>
-      </div>
-    </section>
-  </main>
+        <ul>
+          <li>🐙 <a href="https://github.com/Nenosaj" target="_blank">GitHub</a></li>
+          <li>✉️ <a href="mailto:jasondaohog1@gmail.com">Email Me</a></li>
+        </ul>
+      </section>
+    </main>
 
-      <footer>
-    <p>Made with ❤️ by Jason</p>
-  </footer>
+    <footer>
+      <p>Made with <span>❤️</span> by Jason — © <script>document.write(new Date().getFullYear());</script></p>
+    </footer>
   </body>
 </html>
-
