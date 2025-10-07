@@ -1,34 +1,99 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jason — Home</title>
-  <style>
-    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:800px;margin:4rem auto;padding:0 1rem;line-height:1.45;color:#111}
-    header{display:flex;justify-content:space-between;align-items:center}
-    nav a{margin-left:1rem;text-decoration:none;color:#0366d6}
-    footer{margin-top:3rem;color:#555;font-size:0.9rem}
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Jason — Personal Website</title>
+      <style>
+    body {
+      font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #111;
+      background: #fdfdfd;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .intro img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #ddd;
+    }
+    .intro-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+    }
   </style>
-</head>
-<body>
-  <header>
+  </head>
+  <body>
+      <header>
     <h1>Jason</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="blog.html">Blog</a>
-    </nav>
+    <p>Welcome to my personal corner of the web!</p>
   </header>
 
-  <main>
-    <h2>Welcome</h2>
+      <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="blog.html">Blog</a>
+  </nav>
 
-     </main>
+      <main>
+    <section class="intro">
+      <img src="placeholder.jpg" alt="Jason's Photo">
+      <div class="intro-text">
+        <h2>Hello!</h2>
+        <p>
+          I’m Jason — a creator, writer, and tech enthusiast. This is my personal website where I share my portfolio, stories, blog posts, letters, and more about me.  
+          Feel free to explore and learn more about my work and passions.
+        </p>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    <p>Made for <em>my-personal-website</em>.</p>
+      <footer>
+    <p>Made with ❤️ by Jason</p>
   </footer>
-</body>
+  </body>
 </html>
+
