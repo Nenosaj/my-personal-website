@@ -8,22 +8,22 @@ const socialLinks = [
   { 
     icon: Github, 
     label: "GitHub", 
-    url: "https://github.com/yourusername", 
-    username: "@yourusername",
+    url: "https://github.com/nenosaj", 
+    username: "@Nenosaj",
     color: "from-gray-500 to-gray-600"
   },
   { 
     icon: Linkedin, 
     label: "LinkedIn", 
-    url: "https://linkedin.com/in/yourprofile", 
-    username: "in/yourprofile",
+    url: "https://www.linkedin.com/in/daohog-jason1/", 
+    username: "in/daohog-jason1",
     color: "from-blue-600 to-blue-700"
   },
   { 
     icon: Mail, 
     label: "Email", 
-    url: "mailto:your@email.com", 
-    username: "your@email.com",
+    url: "mailto:daohog.jason1@gmail.com", 
+    username: "daohog.jason1@gmail.com",
     color: "from-blue-500 to-cyan-500"
   },
 ];
@@ -37,7 +37,7 @@ function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
+   
     const subject = encodeURIComponent(`Message from ${formData.name}`);
     const body = encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
     window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;

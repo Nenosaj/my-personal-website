@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cnfm-inventory",
+    "title": "CNFM Site Inventory",
+    "emoji": "📦",
+    "category": "Logistics & Monitoring",
+    "description": "Comprehensive inventory management for the CNFM site, tracking deliveries and monitoring stock movement.",
+    "gradient": "from-orange-500 to-yellow-500",
+    "longDescription": "Evolved from a signage count into a full-scale inventory system. It monitors the 'taking out' and delivery process for the entire CNFM site to ensure 100% accuracy in stock levels.",
+    "techStack": ["Excel/Sheets", "Logistics Logic", "Monitoring Systems"],
+    "features": [
+      "🚚 Delivery tracking & logging",
+      "📉 Real-time 'Take Out' monitoring",
+      "📊 CNFM site-specific reporting",
+      "🛡️ Stock loss prevention"
+    ],
+    "liveLabel": "View Case Study",
+    "liveUrl": "/docs/cnfm-inventory.pdf"
+  },
+  {
+    "id": "medifort",
+    "title": "MediFort",
+    "emoji": "🛡️",
+    "category": "Infrastructure",
+    "description": "Secure hospital IT infrastructure using pfSense and Active Directory.",
+    "gradient": "from-blue-600 to-indigo-600",
+    "longDescription": "Because this is core infrastructure, the 'Live' view showcases the network topology and security configuration used to protect hospital data.",
+    "techStack": ["pfSense", "Active Directory", "Huawei Networking", "CCNA"],
+    "features": [
+      "🔒 Network isolation (VLANs)",
+      "👥 Group Policy Management",
+      "🛡️ Firewall Rule Optimization",
+      "💻 Secure Remote Access"
+    ],
+    "liveLabel": "View Architecture",
+    "liveUrl": "https://github.com/yourusername/medifort-docs"
+  }
+]
