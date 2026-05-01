@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
+import { BookOpen, PenTool, Zap, ArrowRight } from "lucide-react";
+import writingData from "@/data/writing.json";
 
 function Writing() {
   return (
@@ -11,122 +12,110 @@ function Writing() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-400/20 rounded-full mb-6">
             <BookOpen className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-300 font-medium">Letters, Reflections & Stories</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-300">Architectural Narratives</span>
           </div>
           
           <h1 className="text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            <span className="block text-white">My</span>
+            <span className="block text-white">The</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500">
-              Writing ✍️
+              Dev Log ✍️
             </span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl">
-            A collection of letters, personal reflections, and small literary pieces. 
-            This space is evolving into a blog where I'll share thoughts on technology, creativity, 
-            and everything in between.
+          <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
+            {writingData.intro}
           </p>
         </motion.div>
 
-        {/* Coming Soon Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-12"
-        >
-          <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-12 text-center overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-            
-            <div className="relative">
-              <div className="text-7xl mb-6">📝</div>
-              
-              <h2 className="text-4xl font-black text-white mb-4">
-                Blog Coming Soon
-              </h2>
-              
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                I'm currently setting up this space to share my writings. Expect posts about 
-                Raspberry Pi adventures, computer architecture deep dives, programming insights, 
-                and personal reflections.
-              </p>
-
-              <div className="flex flex-wrap gap-4 justify-center">
-                <div className="px-6 py-3 bg-blue-500/20 text-blue-400 rounded-2xl border border-blue-400/30 font-bold">
-                  Tech Articles
-                </div>
-                <div className="px-6 py-3 bg-purple-500/20 text-purple-400 rounded-2xl border border-purple-400/30 font-bold">
-                  Personal Letters
-                </div>
-                <div className="px-6 py-3 bg-green-500/20 text-green-400 rounded-2xl border border-green-400/30 font-bold">
-                  Creative Pieces
-                </div>
+        {/* Categories Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {writingData.categories.map((category, index) => (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="p-8 bg-slate-900/40 backdrop-blur-md border border-slate-800/50 rounded-[2.5rem] hover:border-slate-700/50 transition-all group"
+            >
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                {category.emoji}
               </div>
+              <div className={`text-[10px] font-black uppercase tracking-widest bg-gradient-to-r ${category.color} bg-clip-text text-transparent mb-2`}>
+                {category.label}
+              </div>
+              <h3 className="text-xl font-black text-white mb-3">{category.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {category.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Roadmap / Upcoming Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="relative bg-slate-900/40 border border-slate-800/50 rounded-[3rem] p-12 overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px]" />
+          
+          <div className="relative flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-3xl font-black text-white mb-4">Pipeline Status: {writingData.status}</h2>
+              <p className="text-slate-400 mb-8 max-w-md">
+                I'm currently compiling my first set of technical post-mortems and personal reflections. 
+                Expect the initial deployment shortly.
+              </p>
+              
+              <div className="space-y-4">
+                {writingData.upcomingTopics.map((topic, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-slate-300 font-medium">
+                    <Zap className="w-3 h-3 text-blue-400" /> {topic}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full md:w-64">
+               <div className="flex justify-between text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">
+                 <span>Drafting Progress</span>
+                 <span>{writingData.progress}%</span>
+               </div>
+               <div className="h-2 w-full bg-slate-950 rounded-full p-[2px] border border-slate-800">
+                 <motion.div 
+                   initial={{ width: 0 }}
+                   animate={{ width: `${writingData.progress}%` }}
+                   transition={{ duration: 1.5, ease: "circOut" }}
+                   className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                 />
+               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* What to Expect */}
+        {/* Footer CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="grid md:grid-cols-3 gap-6 mb-12"
+          transition={{ delay: 0.7 }}
+          className="mt-12 p-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/20 rounded-[2.5rem] text-center"
         >
-          <div className="p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl">
-            <div className="text-5xl mb-4">🔧</div>
-            <h3 className="text-xl font-black text-white mb-3">Tech & Tinkering</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Posts about my Raspberry Pi projects, programming experiments, and hardware adventures.
-            </p>
-          </div>
-
-          <div className="p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl">
-            <div className="text-5xl mb-4">🧠</div>
-            <h3 className="text-xl font-black text-white mb-3">Learning Notes</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Deep dives into computer architecture, low-level systems, and technical concepts I'm exploring.
-            </p>
-          </div>
-
-          <div className="p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl">
-            <div className="text-5xl mb-4">✨</div>
-            <h3 className="text-xl font-black text-white mb-3">Creative Writing</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Personal letters, reflections, and small literary pieces exploring ideas and experiences.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Newsletter Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="p-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-3xl text-center backdrop-blur-sm"
-        >
-          <div className="text-6xl mb-4">📬</div>
-          <h3 className="text-3xl font-black text-white mb-4">Want to Stay Updated?</h3>
-          <p className="text-slate-300 mb-6 max-w-md mx-auto">
-            I'm setting up a way to notify readers when I publish new posts. 
-            In the meantime, feel free to reach out directly!
-          </p>
+          <h3 className="text-xl font-black text-white mb-2">Have a topic in mind?</h3>
+          <p className="text-slate-400 mb-6">If you want to see a deep-dive on a specific system or technology, reach out.</p>
           <a
-            href="/contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/50 transition-all"
+            href="mailto:daohogjason1@gmail.com"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-950 rounded-2xl font-black text-sm hover:bg-blue-400 transition-all group"
           >
-            Get in Touch 💬
+            Start a Conversation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
       </div>
     </div>
   );
 }
-
 
 export default Writing;

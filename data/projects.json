@@ -6,7 +6,7 @@
     "category": "Logistics & Monitoring",
     "description": "Comprehensive inventory management for the CNFM site, tracking deliveries and monitoring stock movement.",
     "gradient": "from-orange-500 to-yellow-500",
-    "longDescription": "Evolved from a signage count into a full-scale inventory system. It monitors the 'taking out' and delivery process for the entire CNFM site to ensure 100% accuracy in stock levels.",
+    "longDescription": "Evolved from a signage count into a full-scale inventory system. It monitors the 'taking out' and delivery process for the entire CNFM site to ensure accuracy in stock levels.",
     "techStack": ["Excel/Sheets", "Logistics Logic", "Monitoring Systems"],
     "features": [
       "🚚 Delivery tracking & logging",
@@ -14,8 +14,8 @@
       "📊 CNFM site-specific reporting",
       "🛡️ Stock loss prevention"
     ],
-    "liveLabel": "View Case Study",
-    "liveUrl": "/docs/cnfm-inventory.pdf"
+    "liveLabel": "",
+    "liveUrl": ""
   },
   {
     "id": "medifort",
@@ -24,15 +24,164 @@
     "category": "Infrastructure",
     "description": "Secure hospital IT infrastructure using pfSense and Active Directory.",
     "gradient": "from-blue-600 to-indigo-600",
-    "longDescription": "Because this is core infrastructure, the 'Live' view showcases the network topology and security configuration used to protect hospital data.",
-    "techStack": ["pfSense", "Active Directory", "Huawei Networking", "CCNA"],
+    "longDescription": "Designed and implemented a layered hospital IT infrastructure integrating pfSense firewall, Active Directory, SQL Server, and mixed Linux/Windows environments. Focused on security, scalability, and operational reliability.",
+    "techStack": ["pfSense", "Active Directory", "SQL Server", "Linux", "Windows"],
     "features": [
-      "🔒 Network isolation (VLANs)",
-      "👥 Group Policy Management",
-      "🛡️ Firewall Rule Optimization",
-      "💻 Secure Remote Access"
+      "🔒 Network isolation using VLANs",
+      "👥 Role-based access control via Active Directory",
+      "🛡️ Firewall rule design and optimization",
+      "💻 Secure system integration across platforms"
     ],
     "liveLabel": "View Architecture",
     "liveUrl": "https://github.com/yourusername/medifort-docs"
+  },
+  {
+    "id": "tapit",
+    "title": "TapIT Payment Gateway",
+    "emoji": "💳",
+    "category": "Cloud & Fintech",
+    "description": "Serverless B2B payment platform built with Laravel and AWS.",
+    "gradient": "from-cyan-500 to-blue-600",
+    "longDescription": "Contributed to a high-performance payment gateway using Nuxt 4 and Laravel 12, deployed fully serverless on AWS Lambda via Laravel Vapor and SST. Focused on scalability, automation, and cost efficiency.",
+    "techStack": ["Nuxt 4", "Laravel 12", "AWS Lambda", "Laravel Vapor", "SST"],
+    "features": [
+      "⚡ Serverless architecture on AWS Lambda",
+      "📩 Automated bank transaction importer via PHP IMAP",
+      "💰 Incremental processing for cost optimization",
+      "🔁 Scalable and resilient backend services"
+    ],
+    "liveLabel": "View Details",
+    "liveUrl": "https://www.tapit.ph/"
+  },
+  {
+    "id": "lupad",
+    "title": "LUPAD UAV Detection",
+    "emoji": "🛰️",
+    "category": "AI & Robotics",
+    "description": "AI-powered drone system for cacao disease detection.",
+    "gradient": "from-purple-500 to-pink-500",
+    "longDescription": "Architected a UAV control system with a Nuxt/Vue frontend and Django backend. Integrated YOLOv11 and BotSort for real-time disease detection with an offline-first design for field deployment.",
+    "techStack": ["Nuxt", "Vue", "Django", "YOLOv11", "BotSort"],
+    "features": [
+      "🚁 Real-time UAV command system",
+      "🧠 YOLOv11-based disease detection",
+      "📡 Offline-first architecture for low connectivity",
+      "⚡ Low-latency field inference"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/paturiick/Cacao-Disease-Detection"
+  },
+
+  {
+    "id": "profam",
+    "title": "ProFAM Math Game",
+    "emoji": "🎮",
+    "category": "Game Dev & Simulation",
+    "description": "Commissioned 2D educational game built in Unity, integrating the PISA 2022 Mathematics Framework into interactive gameplay loops.",
+    "gradient": "from-emerald-500 to-teal-600",
+    "longDescription": "Developed 'ProFAM', a commissioned 3-level educational mathematics game. Architected in Unity using C#, the system handles complex state management including timed events, physics-based growth mechanics, and NPC dialogue trees. The game integrates the PISA 2022 Mathematics Framework, requiring dynamic difficulty scaling and real-time calculation validation across varied simulation environments.",
+    "techStack": ["Unity Engine", "C#", "State Management", "Game Physics", "Simulation Logic"],
+    "features": [
+      "⚙️ Engineered 3 distinct simulation loops (Physics, Timers, Commerce)",
+      "⏱️ Built global timer synchronization and dynamic difficulty scaling",
+      "🗣️ Developed NPC-based dialogue and interaction systems",
+      "📊 Implemented real-time mathematical validation and feedback"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/jjcente/ProFAM-Application"
+  },
+  {
+    "id": "gmail-parser",
+    "title": "Automated Gmail Parser",
+    "emoji": "📧",
+    "category": "Workflow Automation",
+    "description": "An automated data pipeline that ingests XLSX files, processes the data into formatted tables, and handles automated email distribution.",
+    "gradient": "from-red-500 to-rose-600",
+    "longDescription": "Engineered a Python-based automated reporting and distribution system designed to eliminate manual data entry. The application ingests raw XLSX files, transforms the extracted data into clean, formatted tables, and automates the distribution process via the Gmail API. Built with a focus on reliability, ensuring that critical data is processed and delivered accurately without human intervention.",
+    "techStack": ["Python", "Gmail API", "Data Transformation", "Workflow Automation"],
+    "features": [
+      "📥 Automated ingestion and parsing of XLSX spreadsheets via Python",
+      "🔄 Programmatic transformation of raw data into formatted tables",
+      "✉️ Seamless integration with Gmail for automated distribution",
+      "⚙️ Reliable, hands-free execution for critical reporting pipelines"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/Nenosaj/automated_gmail_parser"
+  },
+
+  {
+    "id": "tapdrop",
+    "title": "TapDrop: IoT Water Vending",
+    "emoji": "🚰",
+    "category": "IoT & Fintech",
+    "description": "IoT-based water vending machine with dual-payment integration (GCash & Coins) and a remote monitoring dashboard.",
+    "gradient": "from-blue-500 to-indigo-600",
+    "longDescription": "Developed TapDrop, an innovative IoT water vending system that bridges physical hardware with digital payments. I engineered a system that supports dual-payment methods: GCash mobile API integration and manual coin insertion. To manage the fleet, I built a responsive React admin dashboard that provides real-time visibility into system health, allowing for remote monitoring of water levels, transaction logs, and system uptime.",
+    "techStack": ["React", "IoT Integration", "GCash API", "Embedded Systems", "Real-time Monitoring"],
+    "features": [
+      "💳 Integrated GCash mobile payment API alongside manual coin acceptors",
+      "📊 Built a real-time React dashboard for remote asset and transaction monitoring",
+      "🚰 Engineered IoT sensor arrays for precise, remote water level tracking",
+      "🛡️ Developed a secure logging system to track uptime and hardware health"
+    ],
+    "liveLabel": "View Details",
+    "liveUrl": "https://github.com/Nenosaj/TapDrop"
+  },
+
+  {
+    "id": "camhub",
+    "title": "CamHub",
+    "emoji": "📸",
+    "category": "Mobile & Cloud Services",
+    "description": "Centric mobile marketplace for booking and managing photography and cinematography services, built with Flutter and Firebase.",
+    "gradient": "from-amber-500 to-orange-600",
+    "longDescription": "Led a team of four to architect and develop CamHub, a comprehensive mobile marketplace for the photography and cinematography industry. Built using Flutter for the frontend and Firebase for real-time backend services, the application facilitates complex workflows including service booking, high-resolution media uploads, and secure transactions. My role focused on leading the architectural design, crafting the UI/UX, and ensuring seamless integration between the mobile client and Firebase's cloud services.",
+    "techStack": ["Flutter", "Firebase", "Dart", "Firestore", "Cloud Storage"],
+    "features": [
+      "👥 Led a 4-member engineering team through the full SDLC",
+      "📅 Developed integrated booking and service management workflows",
+      "☁️ Engineered real-time data synchronization and cloud media storage",
+      "📱 Crafted a high-performance, responsive UI/UX for cross-platform mobile"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/Nenosaj/CamHub"
+  },
+
+  {
+    "id": "allergy-detection",
+    "title": "Food Allergy Detection System",
+    "emoji": "🥗",
+    "category": "Systems & Data Engineering",
+    "description": "Safety-focused system utilizing ML classifiers and NLP to identify hidden allergens in recipes and provide safe meal suggestions.",
+    "gradient": "from-green-400 to-teal-500",
+    "longDescription": "Engineered a comprehensive food safety system designed to identify hidden allergens and suggest safe meal alternatives. Unlike simple barcode scanners, this system employs NLP for ingredient standardization and utilizes multiple ML classifiers (Naive Bayes, Logistic Regression, and KNN) to analyze complex recipe compositions. Architected with a focus on high-fidelity detection, it addresses cross-contamination risks and provides user-specific allergen profiling for personalized meal recommendations.",
+    "techStack": ["Python", "NLP", "Scikit-learn", "Data Processing", "Machine Learning"],
+    "features": [
+      "🧠 Integrated multi-classifier models (KNN, LogReg, Naive Bayes) for allergen identification",
+      "📝 Developed NLP pipelines for ingredient standardization and text-based recipe analysis",
+      "🛡️ Engineered safety logic to detect hidden allergens and cross-contamination risks",
+      "👤 Built user-centric profiling for personalized, safe-meal suggestions"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/Nenosaj/allergydetection"
+  },
+
+  {
+    "id": "heartsync",
+    "title": "HeartSync: IoT Health Monitor",
+    "emoji": "⚡",
+    "category": "IoT & Health Systems",
+    "description": "An end-to-end IoT system integrating ECG and pulse sensors with an ESP32 and a real-time Flutter mobile dashboard.",
+    "gradient": "from-red-600 to-pink-500",
+    "longDescription": "Architected HeartSync, an IoT-driven health monitoring solution that bridges bio-sensing hardware with a high-performance Flutter mobile application. I engineered the hardware layer using an ESP32 microcontroller to ingest and process raw signals from an AD8232 ECG module and a pulse sensor. The system features real-time BPM calculation and a stress-level algorithm based on signal indicator analysis. This project highlights my ability to handle low-level firmware development, signal processing, and the synchronization of real-time hardware data with cross-platform mobile applications.",
+    "techStack": ["Flutter", "Dart", "ESP32", "AD8232 ECG", "C++", "Signal Processing"],
+    "features": [
+      "📱 Developed a high-performance Flutter app for real-time health data visualization",
+      "📟 Engineered a custom IoT node using ESP32 and specialized bio-sensors",
+      "📈 Developed firmware logic for real-time BPM calculation and ECG signal filtering",
+      "🧠 Implemented stress-level monitoring through signal indicator (RSSI) analysis"
+    ],
+    "liveLabel": "View Repository",
+    "liveUrl": "https://github.com/Nenosaj/HeartSync"
   }
 ]

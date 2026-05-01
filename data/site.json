@@ -1,0 +1,16 @@
+{
+  "name": "Jason T. Daohog",
+  "title": "Full-Stack Cloud & Systems Engineer",
+  "tagline": "I architect the infrastructure behind complex technologies. I specialize in serverless web applications, secure enterprise networks, and the hardware-to-cloud pipelines that make real-world AI possible.",
+  "location": "Philippines",
+  "cta": {
+    "primary": {
+      "label": "View Projects",
+      "href": "/projects"
+    },
+    "secondary": {
+      "label": "Contact Me",
+      "href": "/contact"
+    }
+  }
+}

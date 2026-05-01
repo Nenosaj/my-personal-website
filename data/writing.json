@@ -1,0 +1,37 @@
+{
+  "status": "Drafting",
+  "progress": 40,
+  "intro": "A collection of technical deep-dives, personal reflections, and the occasional literary experiment. This space is where the 'Zero-Gap' philosophy meets long-form storytelling.",
+  "categories": [
+    {
+      "id": "tech",
+      "emoji": "🔧",
+      "label": "The System Spec",
+      "title": "Tech & Tinkering",
+      "description": "Post-mortems on Raspberry Pi projects, experiments in computer architecture, and low-level systems engineering.",
+      "color": "from-blue-500 to-cyan-500"
+    },
+    {
+      "id": "learning",
+      "emoji": "🧠",
+      "label": "Input/Output",
+      "title": "Learning Notes",
+      "description": "Synthesized notes on complex concepts, from AI integration protocols to the evolution of serverless infrastructure.",
+      "color": "from-purple-500 to-pink-500"
+    },
+    {
+      "id": "creative",
+      "emoji": "✨",
+      "label": "The Human Layer",
+      "title": "Reflections",
+      "description": "Personal letters and small literary pieces exploring the intersection of technology, creativity, and the human experience.",
+      "color": "from-green-500 to-emerald-500"
+    }
+  ],
+  "upcomingTopics": [
+    "Raspberry Pi as a Production Server",
+    "The Zero-Gap Narrative in Architecture",
+    "Debugging the Creative Process",
+    "Computer Engineering: The First 4 Years"
+  ]
+}
