@@ -1,0 +1,20 @@
+{
+  "status": "Calibrating",
+  "progress": 85,
+  "targetDate": "June 2026",
+  "philosophy": "Zero-Gap",
+  "headline": "Timeline Calibrating",
+  "subheadline": "The professional journey is currently being compiled. Architecting the 'Zero-Gap' narrative for a June 2026 deployment.",
+  "metadata": [
+    {
+      "label": "Status",
+      "value": "Finalizing Systems",
+      "type": "terminal"
+    },
+    {
+      "label": "Target",
+      "value": "June 2026 Launch",
+      "type": "graduation"
+    }
+  ]
+}

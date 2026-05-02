@@ -1,0 +1,47 @@
+[
+  {
+    "emoji": "💻",
+    "category": "Web & Mobile Stack",
+    "color": "from-blue-500 to-cyan-500",
+    "skills": [
+      { "name": "PHP (Laravel 12)", "emoji": "🧱" },
+      { "name": "TypeScript / JavaScript", "emoji": "⚡" },
+      { "name": "Nuxt / Vue / React", "emoji": "⚛️" },
+      { "name": "Dart (Flutter)", "emoji": "📱" }
+    ]
+  },
+  {
+    "emoji": "☁️",
+    "category": "Cloud & Infrastructure",
+    "color": "from-purple-500 to-pink-500",
+    "skills": [
+      { "name": "AWS Ecosystem", "emoji": "☁️" },
+      { "name": "SST (Ion) & Vapor", "emoji": "🚀" },
+      { "name": "Docker (Sail)", "emoji": "🐳" },
+      { "name": "CI/CD (GitHub Actions)", "emoji": "🔁" }
+    ]
+  },
+  {
+    "emoji": "⚙️",
+    "category": "Core Programming",
+    "color": "from-green-500 to-emerald-500",
+    "skills": [
+      { "name": "Python", "emoji": "🐍" },
+      { "name": "C / C++", "emoji": "⚙️" },
+      { "name": "Java / C#", "emoji": "☕" },
+      { "name": "Lua", "emoji": "🌙" }
+    ]
+  },
+  {
+    "emoji": "🌐",
+    "category": "Systems Admin & Network",
+    "color": "from-orange-500 to-red-500",
+    "skills": [
+      { "name": "Linux (Arch/Debian)", "emoji": "🐧" },
+      { "name": "pfSense & Firewalls", "emoji": "🛡️" },
+      { "name": "Active Directory", "emoji": "🏢" },
+      { "name": "Bash / Zsh Scripting", "emoji": "🐚" },
+      { "name": "Tailscale & Routing", "emoji": "🌍" }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "company": "Globe Telecom",
+    "role": "Core Network Engineer Intern",
+    "period": "Jan 2026 - Apr 2026",
+    "description": "Maintained core network systems ensuring 24/7 uptime.",
+    "type": "internship"
+  },
+  {
+    "company": "Remotask",
+    "role": "Data Annotator",
+    "period": "Aug 2020 - Jun 2022",
+    "description": "Processed datasets for AI training systems.",
+    "type": "work"
+  }
+]

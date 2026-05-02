@@ -1,62 +1,100 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { Mail, Github, Send, Zap, Linkedin } from "lucide-react";
+import { Mail, Github, Send, Zap, Linkedin, Globe, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
-const socialLinks = [
-  { 
-    icon: Github, 
-    label: "GitHub", 
-    url: "https://github.com/yourusername", 
-    username: "@yourusername",
-    color: "from-gray-500 to-gray-600"
-  },
-  { 
-    icon: Linkedin, 
-    label: "LinkedIn", 
-    url: "https://linkedin.com/in/yourprofile", 
-    username: "in/yourprofile",
-    color: "from-blue-600 to-blue-700"
-  },
-  { 
-    icon: Mail, 
-    label: "Email", 
-    url: "mailto:your@email.com", 
-    username: "your@email.com",
-    color: "from-blue-500 to-cyan-500"
-  },
-];
+// Import dynamic professional data
+import contact from "@/data/contact.json";
+import socials from "@/data/socials.json";
 
-function Contact() {
+// Map technical icons to social nodes
+const iconMapping: Record<string, any> = {
+  github: { icon: Github, color: "from-gray-500 to-gray-600" },
+  linkedin: { icon: Linkedin, color: "from-blue-600 to-blue-700" },
+  globe: { icon: Globe, color: "from-teal-500 to-emerald-500" }
+};
+
+export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Build dynamic sidebar links from socials.json
+  const dynamicSocialLinks = [
+    ...socials.map((social) => ({
+      label: social.name,
+      url: social.url,
+      username: social.url.replace(/^https?:\/\/(www\.)?/, ''), 
+      icon: iconMapping[social.icon.toLowerCase()]?.icon || Globe,
+      color: iconMapping[social.icon.toLowerCase()]?.color || "from-slate-500 to-slate-600"
+    })),
+    { 
+      label: "Email", 
+      url: `mailto:${contact.email}`, 
+      username: contact.email,
+      icon: Mail, 
+      color: "from-blue-500 to-cyan-500"
+    }
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Message from ${formData.name}`);
-    const body = encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
-    
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    setStatus('idle');
+
+    // Securely pull credentials from .env.local[cite: 2]
+    const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+          to_email: contact.email, // Targeted to daohogjason1@gmail.com
+        },
+        PUBLIC_KEY
+      );
+
+      if (result.status === 200) {
+        setStatus('success');
+        setFormData({ name: "", email: "", message: "" });
+        // Reset status after 5 seconds to allow for new handshakes
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      console.error("Link Protocol Failure:", error);
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen px-4 lg:px-8 py-32 lg:pr-24">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+        
+        {/* --- Header Section --- */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-400/20 rounded-full mb-6">
             <Zap className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-300 font-medium">Let's Connect</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-300">
+              Initiate Connection
+            </span>
           </div>
           
           <h1 className="text-6xl lg:text-7xl font-black mb-6 leading-tight">
@@ -65,122 +103,119 @@ function Contact() {
               Touch 📬
             </span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Have a project idea? Want to collaborate? Or just want to chat about tech, 
-            Raspberry Pi, or writing? I'd love to hear from you!
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Ready to collaborate on cloud infrastructure, automated systems, 
+            or full-stack engineering.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
+          
+          {/* --- Technical Brief (Contact Form) --- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8">
-              <h2 className="text-3xl font-black text-white mb-2 flex items-center gap-2">
-                <span>✉️</span> Send Me a Message
-              </h2>
-              <p className="text-slate-400 mb-8">
-                Fill out the form below and I'll get back to you soon!
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/50 rounded-[2.5rem] p-10">
+              <h2 className="text-2xl font-black text-white mb-2">Establish Handshake</h2>
+              <p className="text-slate-500 mb-8 text-sm">
+                Transmit your project requirements via the secure link protocol.
               </p>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-slate-300 mb-2 font-bold">
-                      Your Name *
-                    </label>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Your Name</label>
                     <input
                       type="text"
-                      id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors font-medium"
-                      placeholder="Your name"
+                      className="w-full px-6 py-4 bg-slate-950/50 border border-slate-800 rounded-2xl text-white focus:border-blue-500/50 transition-all outline-none"
+                      placeholder="Name"
                       required
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-slate-300 mb-2 font-bold">
-                      Email Address *
-                    </label>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Your Email</label>
                     <input
                       type="email"
-                      id="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors font-medium"
-                      placeholder="your@email.com"
+                      className="w-full px-6 py-4 bg-slate-950/50 border border-slate-800 rounded-2xl text-white focus:border-blue-500/50 transition-all outline-none"
+                      placeholder="email@example.com"
                       required
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-slate-300 mb-2 font-bold">
-                    Your Message *
-                  </label>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Message </label>
                   <textarea
-                    id="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={8}
-                    className="w-full px-4 py-4 bg-slate-900/50 border border-slate-700 rounded-2xl text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none font-medium"
-                    placeholder="Tell me what's on your mind..."
+                    rows={6}
+                    className="w-full px-6 py-4 bg-slate-950/50 border border-slate-800 rounded-2xl text-white focus:border-blue-500/50 transition-all outline-none resize-none"
+                    placeholder="Hello"
                     required
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-2xl font-black text-lg shadow-xl shadow-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/50 transition-all flex items-center justify-center gap-3 group"
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-3 group disabled:opacity-50 ${
+                    status === 'success' 
+                      ? "bg-green-500 text-white" 
+                      : status === 'error' 
+                      ? "bg-red-500 text-white"
+                      : "bg-white text-slate-950 hover:bg-blue-400"
+                  }`}
                 >
-                  <span>Send Message 🚀</span>
-                  <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? (
+                    <>Modulating Signal...</>
+                  ) : status === 'success' ? (
+                    <><CheckCircle2 className="w-4 h-4" /> Data Transmitted</>
+                  ) : status === 'error' ? (
+                    <><AlertCircle className="w-4 h-4" /> Link Failure</>
+                  ) : (
+                    <>Transmit Message <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></>
+                  )}
                 </button>
               </form>
             </div>
           </motion.div>
 
-          {/* Sidebar */}
+          {/* --- System Status & Social Nodes --- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             className="space-y-6"
           >
-            {/* Social Links */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-6">
-              <h3 className="text-xl font-black text-white mb-6">🌐 Connect With Me</h3>
-              
+            {/* Social Nodes */}
+            <div className="bg-slate-900/40 backdrop-blur-md border border-slate-800/50 rounded-[2.5rem] p-8">
+              <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-6">Social Nodes</h3>
               <div className="space-y-3">
-                {socialLinks.map((link, index) => {
+                {dynamicSocialLinks.map((link, index) => {
                   const Icon = link.icon;
-                  
                   return (
                     <motion.a
                       key={index}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + index * 0.1 }}
-                      whileHover={{ scale: 1.03, x: 5 }}
-                      className="flex items-center gap-3 p-4 bg-slate-900/50 border border-slate-700/50 rounded-2xl hover:border-slate-600 transition-all group"
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-4 p-4 bg-slate-950/30 border border-slate-800/50 rounded-2xl hover:border-slate-700 transition-all group"
                     >
-                      <div className={`p-2.5 bg-gradient-to-br ${link.color} rounded-xl`}>
-                        <Icon className="w-5 h-5 text-white" />
+                      <div className={`p-2 bg-gradient-to-br ${link.color} rounded-lg`}>
+                        <Icon className="w-4 h-4 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <div className="text-white font-bold group-hover:text-blue-400 transition-colors">
-                          {link.label}
-                        </div>
-                        <div className="text-sm text-slate-500">{link.username}</div>
+                      <div className="flex-1 overflow-hidden">
+                        <div className="text-white font-bold text-sm truncate">{link.label}</div>
+                        <div className="text-[10px] text-slate-500 truncate">{link.username}</div>
                       </div>
                     </motion.a>
                   );
@@ -188,62 +223,31 @@ function Contact() {
               </div>
             </div>
 
-            {/* Info Card */}
-            <div className="p-6 bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-3xl backdrop-blur-sm">
-              <h3 className="text-white font-black mb-3 flex items-center gap-2">
-                <span>💡</span> Let's Talk About
-              </h3>
-              <div className="space-y-2 text-slate-300 text-sm">
-                <div className="flex items-center gap-2">
-                  <span>•</span>
-                  <span>Raspberry Pi projects</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>•</span>
-                  <span>Computer architecture</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>•</span>
-                  <span>Creative writing</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>•</span>
-                  <span>Tech collaborations</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>•</span>
-                  <span>Anything interesting!</span>
-                </div>
+            {/* Availability Status */}
+            <div className="p-8 bg-blue-500/5 border border-blue-500/20 rounded-[2.5rem] text-center relative overflow-hidden group">
+              <div className="relative w-3 h-3 bg-blue-400 rounded-full mx-auto mb-4">
+                <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping" />
               </div>
-            </div>
-
-            {/* Status */}
-            <div className="p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-400/30 rounded-3xl backdrop-blur-sm text-center">
-              <div className="relative w-4 h-4 bg-green-400 rounded-full mx-auto mb-3">
-                <div className="absolute inset-0 bg-green-400 rounded-full animate-ping"></div>
-              </div>
-              <div className="text-white font-black mb-2">🟢 Open to Connect</div>
-              <div className="text-sm text-slate-300">
-                Always happy to chat and collaborate!
+              <div className="text-xs font-black text-white uppercase tracking-widest mb-2">Availability</div>
+              <div className="text-[11px] text-slate-400 leading-relaxed font-medium">
+                {contact.availability}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Note */}
+        {/* --- System Note --- */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-12 p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl text-center"
+          className="mt-12 text-center"
         >
-          <p className="text-xl text-slate-300 italic">
-            "The best conversations start with hello. Let's have ours!" 👋
+          <p className="text-sm text-slate-500 italic">
+            &copy; 2026 Jason Daohog — Engineering high-fidelity systems from Cagayan de Oro.
           </p>
         </motion.div>
       </div>
     </div>
   );
 }
-
-export default Contact;

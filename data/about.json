@@ -1,0 +1,48 @@
+{
+  "intro": "I'm Jason, a Systems Architect and Full-Stack Engineer specializing in the design and execution of mission-critical digital infrastructure.",
+  "story": [
+    "My engineering approach is centered on 'The Zero-Gap' philosophy mastering the entire pipeline from hardware-level data acquisition to globally scaled cloud environments. I bridge the distance between complex software requirements and high-reliability physical execution.",
+    "With a professional foundation rooted in telecommunications core network reliability and infrastructure management, I architect systems designed to thrive in high-stakes environments. I prioritize security, resilience, and operational integrity above all else.",
+    "I translate abstract technical challenges into production-ready ecosystems. Whether orchestrating serverless cloud architectures or engineering low-level communication protocols for field operations, my goal is to build technology that is invisible, reliable, and fundamentally secure."
+  ],
+  "interests": [
+    { "icon": "🏗️", "label": "Systems Architecture", "color": "from-blue-500 to-cyan-500" },
+    { "icon": "☁️", "label": "Serverless & Cloud", "color": "from-purple-500 to-pink-500" },
+    { "icon": "🔌", "label": "Hardware Integration", "color": "from-green-500 to-emerald-500" },
+    { "icon": "🛡️", "label": "Network Infrastructure", "color": "from-orange-500 to-red-500" }
+  ],
+  "facts": [
+    {
+      "icon": "⚙️",
+      "title": "Systems Thinker",
+      "desc": "I solve for the entire ecosystem, ensuring every layer from the network to the frontend is perfectly aligned."
+    },
+    {
+      "icon": "🛠️",
+      "title": "Full-Spectrum Mastery",
+      "desc": "I operate across the entire stack, managing the delicate balance between physical hardware and cloud-native logic."
+    },
+    {
+      "icon": "📡",
+      "title": "Reliability First",
+      "desc": "I specialize in building systems that maintain high availability in unpredictable, real-world conditions."
+    },
+    {
+      "icon": "⚡",
+      "title": "Agnostic & Adaptive",
+      "desc": "I leverage a multi-disciplinary toolkit to deploy the most effective solution for the challenge at hand."
+    }
+  ],
+  "status": {
+    "available": true,
+    "message": "Available for Full Stack & Systems Engineer."
+  },
+  "toolkit": [
+    "Laravel 12 (PHP 8.4)",
+    "Nuxt 4 (Vue 3/TS)",
+    "Tailwind CSS v4",
+    "AWS (Lambda/Vapor/SST)",
+    "Docker (Sail)",
+    "pfSense & Linux"
+  ]
+}
