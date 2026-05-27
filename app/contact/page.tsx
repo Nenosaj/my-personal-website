@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { Mail, Github, Send, Zap, Linkedin, Globe, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Github, Send, Zap, Linkedin, Globe, CheckCircle2, AlertCircle, type LucideIcon } from "lucide-react";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
 
@@ -10,7 +10,7 @@ import contact from "@/data/contact.json";
 import socials from "@/data/socials.json";
 
 // Map technical icons to social nodes
-const iconMapping: Record<string, any> = {
+const iconMapping: Record<string, { icon: LucideIcon; color: string }> = {
   github: { icon: Github, color: "from-gray-500 to-gray-600" },
   linkedin: { icon: Linkedin, color: "from-blue-600 to-blue-700" },
   globe: { icon: Globe, color: "from-teal-500 to-emerald-500" }

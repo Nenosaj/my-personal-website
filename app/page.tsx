@@ -36,7 +36,7 @@ function Home() {
               transition={{ delay: 0.2 }}
             >
               <h1 className="text-6xl lg:text-8xl font-black mb-6 leading-none">
-                <span className="block text-white">Hey! I'm</span>
+                <span className="block text-white">Hey! I&apos;m</span>
 
                 {/* NAME FROM JSON */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500">
