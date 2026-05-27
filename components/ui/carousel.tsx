@@ -89,20 +89,22 @@ function Carousel({
   );
 
   React.useEffect(() => {
-    if (!api || !setApi) return;
-    setApi(api);
-  }, [api, setApi]);
+  if (!api || !setApi) return;
+  
+  setApi(api);
 
-  React.useEffect(() => {
-    if (!api) return;
-    onSelect(api);
-    api.on("reInit", onSelect);
-    api.on("select", onSelect);
+  const updateScrollState = () => onSelect(api);
+  const frameId = window.requestAnimationFrame(updateScrollState);
 
-    return () => {
-      api?.off("select", onSelect);
+  api.on("reInit", updateScrollState);
+  api.on("select", updateScrollState);
+
+  return () => {
+    window.cancelAnimationFrame(frameId);
+    api.off("reInit", updateScrollState);
+    api.off("select", updateScrollState);
     };
-  }, [api, onSelect]);
+  }, [api, setApi, onSelect]);
 
   return (
     <CarouselContext.Provider

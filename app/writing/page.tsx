@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { BookOpen, PenTool, Zap, ArrowRight } from "lucide-react";
+import { BookOpen, Zap, ArrowRight } from "lucide-react";
 import writingData from "@/data/writing.json";
 
 function Writing() {
@@ -67,7 +67,7 @@ function Writing() {
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl font-black text-white mb-4">Pipeline Status: {writingData.status}</h2>
               <p className="text-slate-400 mb-8 max-w-md">
-                I'm currently compiling my first set of technical post-mortems and personal reflections. 
+                I&apos;m currently compiling my first set of technical post-mortems and personal reflections. 
                 Expect the initial deployment shortly.
               </p>
               
